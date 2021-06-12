@@ -1,6 +1,7 @@
 import React from "react";
 import Square from "./Square";
 
+//onClick function to store history of moves, parameter => index of square
 const Board = ({squares, onClick}) => {
 
     return (

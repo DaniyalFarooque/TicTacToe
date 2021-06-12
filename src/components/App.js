@@ -47,14 +47,21 @@ const App = () => {
 
     return (
       <>
-        <h1 className="banner"> Tic Tac Toe</h1>
-        <Board squares={history[stepNumber]} onClick={handleClick} />
-        <div className="info-wrapper">
-          <div>
-            <h3>History</h3>
-            {renderMoves()}
+        <h1> Tic Tac Toe</h1>
+
+        <div className="rowC">
+        
+          <Board squares={history[stepNumber]} onClick={handleClick} />
+
+          <div className="info-wrapper">
+            <div>
+              <h3>History</h3>
+              {renderMoves()}
+            </div>
+
+            <h3>{winner ? "Winner: " + winner : "Next Player: " + xO}</h3>
           </div>
-          <h3>{winner ? "Winner: " + winner : "Next Player: " + xO}</h3>
+
         </div>
       </>
     );
