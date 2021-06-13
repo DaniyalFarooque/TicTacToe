@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { calculateWinner } from "../helper";
 import Board from "./Board";
+import Infobar from "./Infobar";
 
 const App = () => {
     
@@ -34,7 +35,7 @@ const App = () => {
       setStepNumber(step);
       setXisNext(step % 2 === 0);
     };
-
+    
     const renderMoves = () =>
       history.map((_step, move) => {
         const destination = move ? `Go to move #${move}` : "Go to Start";
@@ -44,13 +45,15 @@ const App = () => {
           </li>
         );
       });
+    
 
     return (
       <>
         <h1> Tic Tac Toe</h1>
 
         <div className="rowC">
-        
+
+          <Infobar winner={winner} xO={xO}/>
           <Board squares={history[stepNumber]} onClick={handleClick} />
 
           <div className="info-wrapper">
@@ -59,7 +62,6 @@ const App = () => {
               {renderMoves()}
             </div>
 
-            <h3>{winner ? "Winner: " + winner : "Next Player: " + xO}</h3>
           </div>
 
         </div>

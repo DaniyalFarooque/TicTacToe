@@ -5,7 +5,11 @@
   margin: 0;
   box-sizing: border-box;
 }
-.rowC{display:flex; flex-direction:row;}
+.rowC{
+  padding-top: 5rem;
+  display:flex; 
+  flex-direction:row;
+}
 
 h1 {
   text-align: center;
@@ -42,20 +46,23 @@ li {
 
 .info-wrapper {
   display: flex;
+  padding-left: 10rem;
   justify-content: space-between;
+}
+
+.infobar{
+  padding-right: 10rem;
+  width: 20rem;
 }
 
 .squares {
   background: #ff97b7;
   border: none;
-  font-size: 5rem;
-  /* font-weight: 800; */
   cursor: pointer;
   outline: none;
 }
 
 .board {
-  align-self: right;
   border: 1rem solid #ff97b7;
   background: #ff97b7;
   width: 500px;
@@ -70,7 +77,6 @@ body {
   color: white;
   font-family: "Roboto", sans-serif;
   display: flex;
-  /* align-items: center; */
   min-height: 100vh;
   padding: 2rem;
 }
