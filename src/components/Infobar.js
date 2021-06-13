@@ -8,16 +8,16 @@ const Infobar = ({winner,xO}) => {
 
     return (
         <>
-            <h3>Opponent</h3>
-            <ToggleButtonGroup>
-                <ToggleButton value="left" aria-label="left aligned">
-                    <ComputerIcon />
-                </ToggleButton>
-                <ToggleButton value="right" aria-label="centered">
-                    <PersonIcon />
-                </ToggleButton>
-            </ToggleButtonGroup>
             <div className="infobar">
+                <h3>Opponent</h3>
+                <ToggleButtonGroup justify="center">
+                    <ToggleButton value="computer" aria-label="computer" color="primary">
+                        <ComputerIcon />
+                    </ToggleButton>
+                    <ToggleButton value="human" aria-label="human" color="primary">
+                        <PersonIcon />
+                    </ToggleButton>
+                </ToggleButtonGroup>
                 <h3 >{winner ? "Winner: " + winner : "Next Player: " + xO}</h3>
             </div>
         </>
