@@ -4,13 +4,13 @@ import PersonIcon from '@material-ui/icons/Person';
 import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 
-const Infobar = ({winner,xO}) => { 
-
+const Infobar = ({opponent,winner,xO,onChange}) => { 
+    
     return (
         <>
             <div className="infobar">
                 <h3>Opponent</h3>
-                <ToggleButtonGroup justify="center">
+                <ToggleButtonGroup value={opponent} exclusive onChange={onChange}>
                     <ToggleButton value="computer" aria-label="computer" color="primary">
                         <ComputerIcon />
                     </ToggleButton>

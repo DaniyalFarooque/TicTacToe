@@ -5,25 +5,35 @@ import Infobar from "./Infobar";
 
 const App = () => {
     
+    // Initialise opponent
+    const [opponent, setOpponent] = useState('computer');
+
     // Initialise the board as empty
     const [history, setHistory] = useState([Array(9).fill(null)])
     
     // For tracking the current step number
     const [stepNumber, setStepNumber] = useState(0);
 
-    //Change naem here
-    //xis next tell its the X player turn or Y player turn 
+    //xIsNext tells if it is X player turn or O player turn 
     const [xIsNext, setXisNext] = useState(true);
 
     const winner = calculateWinner(history[stepNumber]);
     const xO = xIsNext ? "X" : "O";
 
+    const handleOpponent = (event, newOpponent) => {
+      if(newOpponent!=null)
+        setOpponent(newOpponent);
+      console.log(newOpponent);
+    };
+
     const handleClick = (i) => {
       const historyPoint = history.slice(0, stepNumber + 1);
       const current = historyPoint[stepNumber];
       const squares = [...current];
+
       // return if won or occupied
       if (winner || squares[i]) return;
+      
       // select square
       squares[i] = xO;
       setHistory([...historyPoint, squares]);
@@ -53,7 +63,8 @@ const App = () => {
 
         <div className="rowC">
 
-          <Infobar winner={winner} xO={xO}/>
+          <Infobar opponent={opponent} winner={winner} xO={xO} onChange={handleOpponent}/>
+
           <Board squares={history[stepNumber]} onClick={handleClick} />
 
           <div className="info-wrapper">

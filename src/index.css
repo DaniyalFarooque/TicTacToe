@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 .rowC{
-  padding-top: 5rem;
+  padding-top: 2rem;
   display:flex; 
   flex-direction:row;
 }
@@ -17,7 +17,8 @@ h1 {
 }
 
 h3 {
-  padding: 1rem;
+  padding-left: 1rem;
+  padding-bottom: 1rem;
 }
 
 li {
@@ -26,12 +27,12 @@ li {
 
 .X {
   color: #e85d04;
-  font-size: 7rem;
+  font-size: 2rem;
 }
 
 .O {
   color: green;
-  font-size: 7rem;
+  font-size: 2rem;
 }
 
 .info-wrapper button {
@@ -66,8 +67,8 @@ li {
 .board {
   border: 1rem solid #ff97b7;
   background: #ff97b7;
-  width: 500px;
-  height: 500px;
+  width: 300px;
+  height: 300px;
   display: grid;
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
   gap: 1rem;
