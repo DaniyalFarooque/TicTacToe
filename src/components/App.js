@@ -6,6 +6,12 @@ import Infobar from "./Infobar";
 
 const App = () => {
     
+    // CSS
+    const style = {
+      backgroundColor: 'transparent',
+      boxShadow: 'none',
+    };
+
     // Tracking opponent and startPlayer
     const [opponent, setOpponent] = useState('human');
     const [startPlayer, setStartPlayer] = useState('human');
@@ -137,10 +143,7 @@ const App = () => {
           </li>
         );
       });
-    const style = {
-      backgroundColor: 'transparent',
-      boxShadow: 'none',
-    };
+    
 
     return (
       <>
@@ -148,7 +151,7 @@ const App = () => {
 
         <div className="rowC">
 
-          <Infobar style = {style} opponent={opponent} startPlayer={startPlayer} winner={winner} xO={xO} status={disableStartingPlayer} onChange={{handleStartPlayer, handleOpponent}} reset={newGame}/>
+          <Infobar style = {style} opponent={opponent} startPlayer={startPlayer} winner={winner} xO={xO} status={disableStartingPlayer} onChange={{handleStartPlayer, handleOpponent}} onClick={()=>newGame(opponent)}/>
 
           <Board squares={history[stepNumber]} onClick={handleClick} />
 

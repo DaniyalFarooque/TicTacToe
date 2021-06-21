@@ -4,7 +4,7 @@ import {ToggleButton,ToggleButtonGroup} from '@material-ui/lab';
 import ComputerIcon from '@material-ui/icons/Computer';
 import PersonIcon from '@material-ui/icons/Person';
 
-const Infobar = ({style,opponent,startPlayer,winner,xO,onChange,status,reset}) => { 
+const Infobar = ({style,opponent,startPlayer,winner,xO,onChange,status,onClick}) => { 
     
     return (
         <>
@@ -29,7 +29,7 @@ const Infobar = ({style,opponent,startPlayer,winner,xO,onChange,status,reset}) =
                 </ToggleButtonGroup>
 
                 <Card style = {style}><h3 >{winner ? "Winner: " + winner : "Next Player: " + xO}</h3></Card>
-                <Button variant="contained" onClick = {reset} color="primary">
+                <Button variant="contained" onClick = {onClick} color="primary">
                     New Game
                 </Button>
             </div>
