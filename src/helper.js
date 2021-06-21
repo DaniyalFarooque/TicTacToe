@@ -33,7 +33,7 @@ export function bestMove(squares,xO,human) {
         squares[i]=xO;
         
         //Compute the score of this move using minimax algo
-        let score = minimax(squares);
+        let score = minimax(squares,0,false);
 
         //Backtrack
         squares[i]=null;
@@ -51,6 +51,6 @@ export function bestMove(squares,xO,human) {
   // currentPlayer= human;
 }
 
-export function minimax(squares){
+export function minimax(squares,depth,isMaximizing){
   return 1;
 }
