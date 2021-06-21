@@ -30,7 +30,7 @@ const App = () => {
 
     const handleOpponent = (event, newOpponent) => {
 
-      // Clear Board Data
+      // Clear Game Data
       reset();
 
       // Validity Check, if same button is pressed don't allow
@@ -63,29 +63,34 @@ const App = () => {
 
     const handleClick = (i) => {
       
-      //move made by human
+      // Retrieve Saved Data
       const historyPoint = history.slice(0, stepNumber + 1);
       const current = historyPoint[stepNumber];
       const squares = [...current];
 
-      // return if won or occupied
+      // Return if won or occupied
       if (winner || squares[i]) return;
-      squares[i] = xO;
 
+      // Move made by human
+      squares[i] = xO;
       console.log(`registering this move at ${i} made by human ${xO}`);
 
-      //problem here useState is asynchronous
-      const newXO = (xO ==='X') ? 'O' : 'X'; //so need to add this
+      // Problem here useState is asynchronous
+      const newXO = (xO ==='X') ? 'O' : 'X';  //So we need to add a separate variable
+
       if(opponent === 'human'){
-        setXO((xO ==='X') ? 'O' : 'X');
+        setXO(newXO);
+
       }else if(opponent==='computer'){
-        //move made by computer
-        console.log(`registering this move at ${i} made by computer ${newXO}`);
+
+        // Move made by computer
         const aiMove = bestMove(squares,newXO);
         squares[aiMove]=newXO;
+        console.log(`registering this move at ${i} made by computer ${newXO}`);
+
       }
 
-      //update the data
+      // Update the Game Data
       setHistory([...historyPoint, squares]);
       setStepNumber(historyPoint.length);
       setXisNext(!xIsNext);
@@ -94,22 +99,23 @@ const App = () => {
 
     const newGame = (player)=>{
       
-      // Clear Board Data
+      // Clear Game Data
       reset();
 
-      console.log(player);
       // Check startPlayer is computer
       if(player === 'computer'){
         
-        // Move made by computer
+        // Retrieve Saved Data
         const historyPoint = history.slice(0, 1);
         const current = historyPoint[0];
         const squares = [...current];
 
+        // Move made by computer
         const aiMove = bestMove(squares,xO);
         squares[aiMove] = xO;
         console.log(`registering this move at ${aiMove} made by ${xO}`);
         
+        // Update the Game Data
         setHistory([...historyPoint, squares]);
         setStepNumber(historyPoint.length);
         setXisNext(!xIsNext);
@@ -126,12 +132,16 @@ const App = () => {
     }
 
     const jumpTo = (step) => {
+
+      // Update the stepNumber with pressed button stepNumber
       setStepNumber(step);
       setXisNext(step % 2 === 0);
+
     };
     
     const renderMoves = () =>
       history.map((_step, move) => {
+        // Create each history button
         const destination = move ? `Go to move #${move}` : "Go to Start";
         return (
           <li key={move}>
