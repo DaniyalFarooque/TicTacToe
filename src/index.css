@@ -2,23 +2,26 @@
 
 * {
   padding: 0;
-  margin: 0;
+  /* margin: 0; */
   box-sizing: border-box;
 }
 .rowC{
-  padding-top: 2rem;
+  padding-top: 1rem;
   display:flex; 
   flex-direction:row;
 }
 
 h1 {
+  padding-top: 1rem;
   text-align: center;
-  color:purple;
+  color:white;
 }
 
 h3 {
-  padding-left: 1rem;
-  padding-bottom: 1rem;
+  text-align: center;
+  margin:auto;
+  padding: 1rem;
+  color: white;
 }
 
 li {
@@ -42,22 +45,22 @@ li {
 }
 
 .infobar{
-  vertical-align: top;
+  vertical-align: top; 
   padding-right: 5rem;
-  width: 20rem;
+  /* margin: 0 auto; */
+  /* width: 15rem; */
 }
 
 .squares {
-  background: #ff97b7;
   border: none;
   cursor: pointer;
   outline: none;
 }
 
 .board {
-  border: 1rem solid #ff97b7;
-  background: #ff97b7;
-  border-radius: 10px;
+  margin: auto;
+  background: black;
+  border: 1rem solid black;
   width: 300px;
   height: 300px;
   display: grid;
@@ -65,8 +68,17 @@ li {
   gap: 1rem;
 }
 
+.main {
+  width: '100%';
+  background: black;
+  border-radius: 10px;
+  vertical-align: top; 
+  width: 20rem;
+  padding-bottom: 2rem;
+}
+
 body {
-  background-color: #4cc9f0;
+  background-color: purple;
   color: white;
   font-family: "Roboto", sans-serif;
   display: flex;
