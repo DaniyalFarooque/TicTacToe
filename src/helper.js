@@ -18,3 +18,39 @@ export function calculateWinner(squares) {
   return null;
 }
 
+export function bestMove(squares,xO,human) {
+  
+  //AI's turn 
+  let bestScore = -Infinity;
+  let move;
+
+  for(let i=0;i<9;i++){
+
+      //Is the spot available?
+      if(squares[i]===null){
+        
+        //Place at the available spot
+        squares[i]=xO;
+        
+        //Compute the score of this move using minimax algo
+        let score = minimax(squares);
+
+        //Backtrack
+        squares[i]=null;
+
+        //Store the score with the highest value
+        if(score>bestScore){
+          bestScore=score;
+          move=i;
+        }
+      
+    }
+  }
+  // console.log(`ai makes moves at place${move}`);
+  return move;
+  // currentPlayer= human;
+}
+
+export function minimax(squares){
+  return 1;
+}
