@@ -13,7 +13,7 @@
 
 h1 {
   text-align: center;
-  color: #ff9e00;
+  color:purple;
 }
 
 h3 {
@@ -23,16 +23,6 @@ h3 {
 
 li {
   list-style: none;
-}
-
-.X {
-  color: #e85d04;
-  font-size: 2rem;
-}
-
-.O {
-  color: green;
-  font-size: 2rem;
 }
 
 .info-wrapper button {
@@ -67,6 +57,7 @@ li {
 .board {
   border: 1rem solid #ff97b7;
   background: #ff97b7;
+  border-radius: 10px;
   width: 300px;
   height: 300px;
   display: grid;
