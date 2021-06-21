@@ -1,4 +1,7 @@
 import React from "react";
+import { Button } from '@material-ui/core';
+import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
+import ClearIcon from '@material-ui/icons/Clear';
 
 /* 
     value defines the piece placed at the square, 
@@ -6,15 +9,31 @@ import React from "react";
     onClick is a function
 */
 const Square = ({value,onClick})=>{
-    // style is the class to apply css 
-    // used ES6 string interpolation/template literals with ` (backticks) and ${expr}
-    const style = value ? `square ${value}` : 'square';
+
+    //choose icon to display on button
+    let icon, color;
+    
+    if (value==='X') {
+        color="primary";
+        icon = <ClearIcon />;
+    }
+    else if(value==='O') {
+        color="secondary";
+        icon = <RadioButtonUncheckedIcon/>;
+    }
+    else 
+        icon = null;
+
     return (
         
-        //selecting style based on value of square
-        <button className = {style} onClick = {onClick}> 
-            {value}
-        </button>
+        <Button
+            variant="contained"
+            children={icon}
+            onClick = {onClick}
+            color = {color}
+        >
+        </Button>
+        
     );
 }
 export default Square;
