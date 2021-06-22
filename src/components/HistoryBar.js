@@ -4,8 +4,9 @@ import Move from './Move';
 
 const HistoryBar = ({history,onClick})=>{
     const style = {
-        backgroundColor: 'grey',
-        boxShadow: 'none',
+        display: 'block',
+        backgroundColor: 'transparent',
+        // boxShadow: 'none'
     };
     
     return (
