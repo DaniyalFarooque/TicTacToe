@@ -6,7 +6,7 @@ import {Card} from '@material-ui/core';
 const Board = ({ squares, onClick}) => {
     const style = {
         backgroundColor: 'transparent',
-        boxShadow: 'none',
+        // boxShadow: 'none'
     };
 
     return (
