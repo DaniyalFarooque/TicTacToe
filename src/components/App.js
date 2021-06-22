@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Card, Button } from '@material-ui/core';
 import { calculateWinner, bestMove } from "../helper";
 import Board from "./Board";
-import Infobar from "./Infobar";
+import SettingsBar from "./SettingsBar";
+import HistoryBar from "./HistoryBar";
 
 const App = () => {
   // Tracking opponent and startPlayer
@@ -129,55 +129,20 @@ const App = () => {
 
     const jumpTo = (step) => {
 
-      // Update the stepNumber with pressed button stepNumber
+      // Update the stepNumber with the stepNumber of Move component  
       setStepNumber(step);
       setXisNext(step % 2 === 0);
 
     };
-    
-    const renderMoves = () =>
-      history.map((_step, move) => {
-        // Create each history button
-        const destination = move ? `Go to move #${move}` : "Go to Start";
-        return (
-          <li key={move}>
-            <Button variant="contained"
-            onClick={() => jumpTo(move)}
-            >
-            {destination} 
-            </Button>
-          </li>
-        );
-      });
-    
-
-    // CSS
-    const style = {
-      backgroundColor: 'transparent',
-      boxShadow: 'none',
-    };
 
     return (
       <>
-
         <div className="rowC">
-          <Card>
-            <div className="rowC">
-              <Infobar opponent={opponent} startPlayer={startPlayer} winner={winner} xO={xO} status={disableStartingPlayer} onChange={{handleStartPlayer, handleOpponent}} onClick={()=>newGame(startPlayer)}/>
-              
-              <div className="info-wrapper">
-                <div className="main">
-                <Card style = {style}>
-                  <h3>History</h3>
-                  {renderMoves()}
-                </Card>
-                </div>
-              </div>
-            </div>
-          </Card>
-
+          <div className="rowC">
+            <SettingsBar opponent={opponent} startPlayer={startPlayer} winner={winner} xO={xO} status={disableStartingPlayer} onChange={{handleStartPlayer, handleOpponent}} onClick={()=>newGame(startPlayer)}/>
+            <HistoryBar history={history} onClick={jumpTo}/>
+          </div>
           <Board squares={history[stepNumber]} onClick={handleClick} />
-
         </div>
       </>
     );
