@@ -1,12 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 * {
-  padding: 0;
-  /* margin: 0; */
   box-sizing: border-box;
 }
 .rowC{
-  padding-top: 1rem;
   display:flex; 
   flex-direction:row;
 }
@@ -40,13 +37,13 @@ li {
 
 .info-wrapper {
   display: flex;
-  padding-left: 5rem;
+  /* padding-left: 5rem; */
   justify-content: space-between;
 }
 
 .infobar{
   vertical-align: top; 
-  padding-right: 5rem;
+  /* padding-right: 5rem; */
   /* margin: 0 auto; */
   /* width: 15rem; */
 }
@@ -69,7 +66,7 @@ li {
 }
 
 .main {
-  width: '100%';
+  /* width: '100%'; */
   background: black;
   border-radius: 10px;
   vertical-align: top; 
