@@ -4,10 +4,8 @@ import {Card} from '@material-ui/core';
 
 //onClick function to store history of moves, parameter => index of square
 const Board = ({ squares, onClick}) => {
-
-    // CSS
     const style = {
-        backgroundColor: 'black',
+        backgroundColor: 'transparent',
         boxShadow: 'none',
     };
 
@@ -15,7 +13,6 @@ const Board = ({ squares, onClick}) => {
         <>
             <div className="main">
                 <Card style = {style}> <h1>Tic Tac Toe</h1></Card>
-
                 <div className="board">
                     {squares.map((square,i) => {
                         return <Square key={i} value={square} onClick = {()=>onClick(i)} />
