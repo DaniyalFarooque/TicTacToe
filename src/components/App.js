@@ -100,7 +100,7 @@ const App = () => {
 
     // Check startPlayer is computer
     if(player === 'computer'){
-      
+
       // Retrieve Saved Data
       const historyPoint = history.slice(0, 1);
       const current = historyPoint[0];
@@ -161,19 +161,22 @@ const App = () => {
       <>
 
         <div className="rowC">
-
-          <Infobar style = {style} opponent={opponent} startPlayer={startPlayer} winner={winner} xO={xO} status={disableStartingPlayer} onChange={{handleStartPlayer, handleOpponent}} onClick={()=>newGame(opponent)}/>
-
-          <Board style = {style} squares={history[stepNumber]} onClick={handleClick} />
-
-          <div className="info-wrapper">
-            <div className="main">
-              <Card style = {style}>
-                <h3>History</h3>
-                {renderMoves()}
-              </Card>
+          <Card>
+            <div className="rowC">
+              <Infobar opponent={opponent} startPlayer={startPlayer} winner={winner} xO={xO} status={disableStartingPlayer} onChange={{handleStartPlayer, handleOpponent}} onClick={()=>newGame(startPlayer)}/>
+              
+              <div className="info-wrapper">
+                <div className="main">
+                <Card style = {style}>
+                  <h3>History</h3>
+                  {renderMoves()}
+                </Card>
+                </div>
+              </div>
             </div>
-          </div>
+          </Card>
+
+          <Board squares={history[stepNumber]} onClick={handleClick} />
 
         </div>
       </>

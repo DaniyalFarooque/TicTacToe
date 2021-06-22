@@ -4,7 +4,13 @@ import {ToggleButton, ToggleButtonGroup} from '@material-ui/lab';
 import ComputerIcon from '@material-ui/icons/Computer';
 import PersonIcon from '@material-ui/icons/Person';
 
-const Infobar = ({style,opponent,startPlayer,winner,xO,onChange,status,onClick}) => { 
+const Infobar = ({opponent,startPlayer,winner,xO,onChange,status,onClick}) => { 
+    // CSS
+    const style = {
+        backgroundColor: 'black',
+        boxShadow: 'none',
+    };
+    
     let message;
     if(winner===null){
         message = `Next Player:  ${xO}`;
@@ -13,6 +19,7 @@ const Infobar = ({style,opponent,startPlayer,winner,xO,onChange,status,onClick})
     }else{
         message = `Winner ${winner}`;
     }
+
     return (
         <>
             <div className="infobar">

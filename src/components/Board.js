@@ -3,7 +3,13 @@ import Square from "./Square";
 import {Card} from '@material-ui/core';
 
 //onClick function to store history of moves, parameter => index of square
-const Board = ({style, squares, onClick}) => {
+const Board = ({ squares, onClick}) => {
+
+    // CSS
+    const style = {
+        backgroundColor: 'black',
+        boxShadow: 'none',
+    };
 
     return (
         <>
