@@ -10,30 +10,29 @@ import ClearIcon from '@material-ui/icons/Clear';
 */
 const Square = ({value,onClick})=>{
 
-    //choose icon to display on button
-    let icon, color;
-    
+    //choose mark to display on button
+    let mark, color;
     if (value==='X') {
         color="primary";
-        icon = <ClearIcon />;
+        mark = <ClearIcon />;
     }
     else if(value==='O') {
         color="secondary";
-        icon = <RadioButtonUncheckedIcon/>;
+        mark = <RadioButtonUncheckedIcon/>;
     }
     else 
-        icon = null;
+        mark = null;
 
     return (
-        
-        <Button
-            variant="contained"
-            children={icon}
-            onClick = {onClick}
-            color = {color}
-        >
-        </Button>
-        
+        <>
+            <Button
+                variant="contained"
+                children={mark}
+                onClick = {onClick}
+                color = {color}
+            >
+            </Button>
+        </>
     );
 }
 export default Square;
