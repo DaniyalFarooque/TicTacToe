@@ -16,7 +16,7 @@ const HistoryBar = ({history,onClick})=>{
                             {history.map((_step, move) => {
                                 const destination = move ? `Go to move #${move}` : "Go to Start";
                                 return (
-                                    <Move key={move} destination={destination} onClick={() => onClick(move)}/>
+                                <Move key={move} destination={destination} onClick={() => onClick(move)}/>
                                 );
                             })}
                         </div>
