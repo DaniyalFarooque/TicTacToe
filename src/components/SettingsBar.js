@@ -20,9 +20,13 @@ const SettingsBar = ({opponent,startPlayer,winner,xO,onChange,status,onClick})  
 
     return (
         <>
+            
             <motion.div className = 'setbar'> {/*animate = {{x: -150 , scale: 1.1,  }}>*/}
+                
                 <Grid  container justify = 'center'  item>
+    
                     <h3>Opponent</h3>
+
                     <ToggleButtonGroup value = {opponent} exclusive onChange = {onChange.handleOpponent}>
                         <ToggleButton value = 'human' aria-label = 'human' color = 'primary'>
                             <PersonIcon />
@@ -33,6 +37,7 @@ const SettingsBar = ({opponent,startPlayer,winner,xO,onChange,status,onClick})  
                     </ToggleButtonGroup>
 
                     <h3>Starting Player</h3>
+                    
                     <ToggleButtonGroup value = {startPlayer} exclusive  onChange = {onChange.handleStartPlayer}>
                         <ToggleButton value = 'human' disabled = {status} aria-label = 'human' color = 'primary'>
                             <PersonIcon />
@@ -44,7 +49,6 @@ const SettingsBar = ({opponent,startPlayer,winner,xO,onChange,status,onClick})  
 
                     <h3>{ message }</h3> 
                 </Grid>
-
                 { winner != null && (
                     <motion.div id = 'result' animate = {{x: 550, y:-200, scale: 1.2,  }}>
                         <h1>{ message }</h1> 
@@ -69,6 +73,7 @@ const SettingsBar = ({opponent,startPlayer,winner,xO,onChange,status,onClick})  
                     </motion.div>
                 )}
             </motion.div>
+            
         </>
     );
 }
