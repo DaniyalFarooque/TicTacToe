@@ -1,57 +1,79 @@
-import React from "react";
-import {Card, Button, Grid} from '@material-ui/core';
+import React from 'react';
+import {motion} from 'framer-motion';
+import {Button, Grid} from '@material-ui/core';
 import {ToggleButton, ToggleButtonGroup} from '@material-ui/lab';
 import ComputerIcon from '@material-ui/icons/Computer';
 import PersonIcon from '@material-ui/icons/Person';
 
-const SettingsBar = ({opponent,startPlayer,winner,xO,onChange,status,onClick}) => { 
-    const style = {
-        display: 'block',
-        height: '450px',
-        backgroundColor: 'transparent',
-        width: '150px'
-        // boxShadow: 'none'
-    };
+const SettingsBar = ({opponent,startPlayer,winner,xO,onChange,status,onClick})  => { 
     let message;
-    if(winner===null){
+    if(winner === null){
         message = `Next Player:  ${xO}`;
-    }else if(winner==="draw"){
-        message = "Draw";
+    }else if(winner === 'draw'){
+        message = 'Draw';
     }else{
-        message = `Winner ${winner}`;
+        if(opponent === 'computer')
+            message = 'Lose';
+        else
+            message = `Winner ${winner}`;
     }
 
     return (
         <>
-            <Card style = {style}>
-                <h3>Opponent</h3>
-                <Grid container justify="center" alignItems="center" item>
-                    <ToggleButtonGroup value={opponent} exclusive onChange={onChange.handleOpponent}>
-                        <ToggleButton value="human" aria-label="human" color="primary">
+            
+            <motion.div className = 'setbar'> {/*animate = {{x: -150 , scale: 1.1,  }}>*/}
+                
+                <Grid  container justify = 'center'  item>
+    
+                    <h3>Opponent</h3>
+
+                    <ToggleButtonGroup value = {opponent} exclusive onChange = {onChange.handleOpponent}>
+                        <ToggleButton value = 'human' aria-label = 'human' color = 'primary'>
                             <PersonIcon />
                         </ToggleButton>
-                        <ToggleButton value="computer" aria-label="computer" color="primary">
+                        <ToggleButton value = 'computer' aria-label = 'computer' color = 'primary'>
                             <ComputerIcon />
                         </ToggleButton>
                     </ToggleButtonGroup>
-                <h3>Starting Player</h3>
-                <ToggleButtonGroup value={startPlayer} exclusive  onChange={onChange.handleStartPlayer}>
-                    <ToggleButton value="human" disabled = {status} aria-label="human" color="primary">
-                        <PersonIcon />
-                    </ToggleButton>
-                    <ToggleButton value="computer" disabled = {status} aria-label="computer" color="primary">
-                        <ComputerIcon />
-                    </ToggleButton>
-                </ToggleButtonGroup>
-            
-                <h3>{message}</h3> 
 
-                <Button style = {{ background: 'linear-gradient(45deg, #ef476f 30%, #ffafcc 90%)'}} variant="contained" onClick = {onClick} >
-                    New Game
-                </Button>
+                    <h3>Starting Player</h3>
+                    
+                    <ToggleButtonGroup value = {startPlayer} exclusive  onChange = {onChange.handleStartPlayer}>
+                        <ToggleButton value = 'human' disabled = {status} aria-label = 'human' color = 'primary'>
+                            <PersonIcon />
+                        </ToggleButton>
+                        <ToggleButton value = 'computer' disabled = {status} aria-label = 'computer' color = 'primary'>
+                            <ComputerIcon />
+                        </ToggleButton>
+                    </ToggleButtonGroup>
+
+                    <h3>{ message }</h3> 
                 </Grid>
+                { winner != null && (
+                    <motion.div id = 'result' animate = {{x: 550, y:-200, scale: 1.2,  }}>
+                        <h1>{ message }</h1> 
 
-            </Card>
+                        <Button 
+                            style = {{ 
+                                background: 'linear-gradient(90deg, rgba(56,237,46,1) 0%, rgba(245,252,70,1) 100%)',
+                                fontFamily: 'Benne',
+                                height: '50px',
+                                width: '150px',
+                            }}  
+                            onClick = {onClick} 
+                            component = {motion.div}
+                            whileHover = {{
+                                scale: 1.2,
+                                transition: { duration: 0.3 }
+                            }}
+                            whileTap = {{ scale: 0.9 }}
+                        >
+                            New Game
+                        </Button>
+                    </motion.div>
+                )}
+            </motion.div>
+            
         </>
     );
 }
