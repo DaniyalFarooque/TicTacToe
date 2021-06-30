@@ -96,7 +96,6 @@ export function bestMove(squares,xO) {
 }
 
 
-
 export function minimax(squares,depth,isMaximizing){
   const result = calculateWinner(squares);
   if (result !== null) {

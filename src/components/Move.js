@@ -1,16 +1,30 @@
 import React from "react";
-import {Button} from '@material-ui/core';
+import {Button, ThemeProvider} from '@material-ui/core';
+import { motion } from "framer-motion";
+import { theme } from '../theme';
 
-const Move = ({move, destination,onClick}) => {
+const Move = ({ destination, onClick}) => {
+    // console.log(move);
     return (
         <>
-            <li key={move}>
-                <Button className="button" variant="contained"
-                onClick={() => onClick(move)}
-                >
-                {destination} 
-            </Button>
-          </li>
+            <div>
+                <ThemeProvider theme={theme}>
+                    <Button 
+                        style = {{ 
+                            background: '#006d77'
+                        }}  
+                        onClick = {onClick}
+                        component = {motion.div}
+                        whileHover = {{
+                            scale: 1.2,
+                            transition: { duration: 0.3 }
+                        }}
+                        whileTap = {{ scale: 0.9 }}
+                    >
+                        {destination} 
+                    </Button>
+                </ThemeProvider>
+            </div>
         </>
     )
 }
